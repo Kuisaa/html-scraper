@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Web scraper</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+  </head>
+  <body>
+
+    <h1>Very basic local html scraper</h1>
+    <form id="scraper-control" class="" action="index.html" method="post">
+      <label for="filename">Filename:</label></br>
+      <input type="text" name="filename" value="" required></br>
+      <label for="tags">Tags:</label></br>
+      <input type="text" name="tags" value=""required></br>
+      <label for="targetcontent">Scrape from element</label>
+      <select class="target-content" name="targetcontent">
+        <option value="text">text</option>
+        <option value="attr_href">attr href</option>
+      </select></br>
+      <label for="resulttype">I want results in:</label>
+      <select class="result-type" name="resulttype">
+        <option value="csv">CSV</option>
+        <option value="json">JSON</option>
+      </select>
+      <input type="submit" name="submit" value="submit">
+    </form>
+    <div id="preview" class=""></div>
+    <button id="download" class="hidden" type="button" name="download">Download</button>
+    <p>
+      This program is for scraping information from local HTML files. It is a
+      quick implementation and is very buggy.
+    </p>
+    <p>
+    <ol>
+      <li>Find a page you want to scrape.</li>
+      <li>Copy the html to a file that contains the basic html structure base (html,head,body)</li>
+      <li>Save this file into scraper/data/files/</li>
+      <li>Bring up Vagrant and run server with node index.js</li>
+      <li>Open localhost:3000/index.html</li>
+      <li>Give scraper the name of the file you want to scrape, the tags you want to use and type for the file you want to download</li>
+    </ol>
+      Query is done with Cheerio and it uses jQuery so googling solutions for that is useful.
+      For example choosing text for only childless elements input: p:not(:has(>div))
+    </p>
+    <script type="text/javascript" src="js/script.js">
+
+    </script>
+  </body>
+</html>
